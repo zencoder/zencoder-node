@@ -9,11 +9,11 @@ Requires Node.js >= 0.8
 
 Install the NPM package
 
-    $ npm install zencoder-dev
+    $ npm install zencoder
 
 Require the package in your application
 
-    var Zencoder = require('zencoder-dev');
+    var Zencoder = require('zencoder');
 
 Instantiate a new client. This will accept an API Key and a Base URL. If no API key is set, it will look for a `ZENCODER_API_KEY` environment variable. Base URL defaults to `https://app.zencoder.com/api/v2`.
 
@@ -54,8 +54,4 @@ Resubmit a job
 
     client.Job.resubmit(12345, callback);
 
-The other endpoints follow the same conventions, but if you'd like to see more examples, check out the tests.
-
-### Notes
-
-This library is still very much under development. It will be moving to `zencoder` as soon as possible as a beta, but be aware that the API could (read: will) change before we release as production. Along those lines, if you see things about the API you don't like, please [reach out](mailto: matt@zencoder.com)
+If you'd like to see more examples (along with example API responses) the test suite is a great place to start.
