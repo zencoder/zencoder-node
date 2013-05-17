@@ -54,4 +54,4 @@ Resubmit a job
 
     client.Job.resubmit(12345, callback);
 
-If you'd like to see more examples (along with example API responses) the test suite is a great place to start.
+If you'd like to see more examples (along with example API responses), the test suite is a great place to start.

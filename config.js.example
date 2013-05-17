@@ -1,4 +1,0 @@
-//Configuration for running tests and examples against the Zencoder API
-module.exports = {
-  api_key:'xxxxxxxxxxxxxxxxxxxxxxxx'
-};

@@ -1,5 +1,4 @@
-var config = require('../config')
-  , nock = require('nock')
+var nock = require('nock')
   , scopes = require('./scopes.js')
   , expect = require('chai').expect
   , Zencoder = require('../index');
