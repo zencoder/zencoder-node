@@ -1,0 +1,40 @@
+{
+  "name": "zencoder",
+  "version": "0.1.0",
+  "author": "Matthew McClure <mmcclure@brightcove.com>",
+  "description": "Node integration library for Zencoder",
+  "contributors": [
+    {
+      "name": "Matthew McClure",
+      "email": "mmcclure@brightcove.com"
+    },
+    {
+      "name": "Ryan Faerman",
+      "email": "ryan@faerman.net"
+    }
+  ],
+  "main": "./lib/http-server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zencoder/zencoder-node"
+  },
+  "keywords": [
+    "zencoder",
+    "video",
+    "encoding",
+    "transcoding"
+  ],
+  "dependencies" : {
+    "request": "2.x",
+    "underscore": "1.4.x"
+  },
+  "devDependencies": {
+    "colors": "*",
+    "nock": "0.17.x",
+    "chai": "1.6.x"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
