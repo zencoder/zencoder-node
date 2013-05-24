@@ -5,13 +5,13 @@ var nock = require('nock')
 
 var scope = nock('https://app.zencoder.com')
               .matchHeader('Zencoder-Api-Key', '1234567abcde')
-              .post('/api/v2/accounts')
+              .post('/api/v2/account')
               .reply(201, scopes.accounts.create)
-              .get('/api/v2/accounts')
+              .get('/api/v2/account')
               .reply(200, scopes.accounts.details)
-              .put('/api/v2/accounts/integration')
+              .put('/api/v2/account/integration')
               .reply(204)
-              .put('/api/v2/accounts/live')
+              .put('/api/v2/account/live')
               .reply(204);
 
 describe('The Zencoder REST Client account resource', function () {
