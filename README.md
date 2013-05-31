@@ -1,7 +1,7 @@
 Zencoder
 ----
 
-[![Dependency Status](https://david-dm.org/zencoder/zencoder-node.png)](https://david-dm.org/zencoder/zencoder-node)
+[![Dependency Status](https://david-dm.org/zencoder/zencoder-node.png)](https://david-dm.org/zencoder/zencoder-node) [![devDependency Status](https://david-dm.org/zencoder/zencoder-node/dev-status.png)](https://david-dm.org/zencoder/zencoder-node#info=devDependencies)
 
 NPM package for interacting with the Zencoder API.
 

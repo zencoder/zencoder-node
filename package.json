@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "colors": "*",
-    "nock": "0.17.x",
+    "nock": "0.18.x",
     "chai": "1.6.x"
   },
   "license": "MIT",
