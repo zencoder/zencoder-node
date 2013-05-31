@@ -1,6 +1,8 @@
 Zencoder
 ----
 
+[![Dependency Status](https://david-dm.org/zencoder/zencoder-node.png)](https://david-dm.org/zencoder/zencoder-node)
+
 NPM package for interacting with the Zencoder API.
 
 Requires Node.js >= 0.8
