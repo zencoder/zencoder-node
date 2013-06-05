@@ -32,7 +32,7 @@
     "underscore": "1.4.x"
   },
   "devDependencies": {
-    "mocha": "1.9.x",
+    "mocha": "1.10.x",
     "colors": "*",
     "nock": "0.18.x",
     "chai": "1.6.x"
