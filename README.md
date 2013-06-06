@@ -27,7 +27,7 @@ Instantiate a new client. This will accept an API Key and a Base URL. If no API 
 
 ### Usage
 
-The library follows the API's REST conventions as closely as possible. Each method accepts a callback as the last parameter, and passes 3 objects to that callback: error, data, and response (in that order). Error will be null unless there's a problem with the request, data contains the body of the response from Zencoder, and response contains the raw response body, which includes HTTP codes, etc. In most cases you'll only need to check for error and then do somewith with the data. Below is a basic callback that we'll be using for reference in the rest of our requests.
+The library follows the API's REST conventions as closely as possible. Each method accepts a callback as the last parameter, and passes 3 objects to that callback: error, data, and response (in that order). Error will be null unless there's a problem with the request, data contains the body of the response from Zencoder, and response contains the raw response body, which includes HTTP codes, etc. In most cases you'll only need to check for error and then do something with the data. Below is a basic callback that we'll be using for reference in the rest of our requests.
 
     function callback(err, data) {
       // if err is not null, something went wrong. Print it out and return.
@@ -130,28 +130,28 @@ Get [Live usage](https://app.zencoder.com/docs/api/reports/live).
 Create a [new account](https://app.zencoder.com/docs/api/accounts/create). A unique email address and terms of service are required, but you can also specify a password (and confirmation) along with whether or not you want to subscribe to the Zencoder newsletter. New accounts will be created under the Test (Free) plan.
 
 	client.Account.create({email: 'tedjones@example.com', terms_of_service: 1}, callback(err, data));
-	
+
 	// Create an account with all possible options
 	client.Account.create({
-		email: 'tedjones2@example.com', 
+		email: 'tedjones2@example.com',
 		terms_of_service: 1,
 		password: 'sureamgladforssl',
 		password_confirmation: 'sureamgladforssl',
 		newsletter: 0
 	}, callback(err, data));
-	
+
 Get [details](https://app.zencoder.com/docs/api/accounts/show) about the current account.
 
 	client.Account.details(callback(err, data));
-	
+
 Turn [integration mode](https://app.zencoder.com/docs/api/accounts/integration) on (all jobs are test jobs).
 
     client.Account.integration(callback(err, data));
-    
+
 Turn off integration mode, which means your account is live (and you'll be billed for jobs).
 
 	client.Account.live(callback(err, data));
-	
+
 
 ## Tests
 
@@ -163,9 +163,9 @@ To run the tests:
 	$ cd zencoder-node
 	$ npm install
 	$ mocha
-	
+
 Instead of `$ mocha`, you can also just run `$ npm test`.
 
 ----
-	
+
 Special thanks to [Ryan Faerman](http://www.ryanfaerman.com/) for maintaining the original Zencoder NPM module.
