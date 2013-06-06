@@ -77,11 +77,11 @@ describe('The Zencoder REST Client Job resource', function () {
     });
 
     it('should return a limited set of recent jobs', function(done) {
-      client.Job.list(function(err, data, response) {
+      client.Job.list({per_page: 1}, function(err, data, response) {
         expect(response.statusCode).to.equal(200);
         expect(data.length).to.equal(1);
         done();
-      }, {per_page: 1})
+      })
     })
   });
 
