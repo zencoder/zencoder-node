@@ -27,15 +27,16 @@
     "encoding",
     "transcoding"
   ],
-  "dependencies" : {
+  "dependencies": {
     "request": "2.x",
     "underscore": "1.4.x"
   },
   "devDependencies": {
-    "mocha": "1.10.x",
+    "mocha": "1.11.x",
     "colors": "*",
     "nock": "0.18.x",
-    "chai": "1.6.x"
+    "chai": "1.6.x",
+    "coveralls": "~2.0.13"
   },
   "license": "MIT",
   "engines": {
