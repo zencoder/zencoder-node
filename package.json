@@ -14,7 +14,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha"
+    "test": "make test-coveralls"
   },
   "main": "./lib/http-server",
   "repository": {
@@ -36,7 +36,9 @@
     "colors": "*",
     "nock": "0.18.x",
     "chai": "1.6.x",
-    "coveralls": "~2.0.13"
+    "mocha-lcov-reporter": "0.0.1",
+    "coveralls": "2.0.x",
+    "jscoverage": "0.3.x"
   },
   "license": "MIT",
   "engines": {

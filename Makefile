@@ -1,14 +1,17 @@
+REPORTER = spec
 test:
-	npm test
+	@NODE_ENV=test ./node_modules/.bin/mocha -b --reporter $(REPORTER)
 
-coverage:
-	jscoverage lib lib-cov
-	ZENCODER_NODE_COV=1 mocha -R html-cov > coverage.html
+lib-cov:
+	./node_modules/jscoverage/bin/jscoverage lib lib-cov
+
+test-cov:	lib-cov
+	@ZENCODER_NODE_COV=1 $(MAKE) test REPORTER=html-cov 1> coverage.html
 	rm -rf lib-cov
 
-coveralls:
-	jscoverage lib lib-cov
-	ZENOCDER_NODE_COV=1 ./node_modules/.bin/mocha test -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+test-coveralls:lib-cov
+	$(MAKE) test REPORTER=spec
+	@ZENCODER_NODE_COV=1 $(MAKE) test REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js --verbose
 	rm -rf lib-cov
 
 .PHONY: test
