@@ -34,7 +34,7 @@
     "mocha": "1.11.x",
     "colors": "*",
     "nock": "0.18.x",
-    "chai": "1.6.x",
+    "chai": "1.7.x",
     "mocha-lcov-reporter": "0.0.1",
     "coveralls": "2.0.x",
     "jscoverage": "0.3.x"
