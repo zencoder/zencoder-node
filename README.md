@@ -152,6 +152,11 @@ Turn off integration mode, which means your account is live (and you'll be bille
 
 	client.Account.live(callback(err, data));
 
+## Advanced Options
+
+You can specify options by passing in a third, optional parameter when instantiating a new client. Right now, the only option available is `timeout`, but more will be added.
+
+    var client = new Zencoder('API_KEY', 'BASE_URL', {timeout: 5000});
 
 ## Tests
 

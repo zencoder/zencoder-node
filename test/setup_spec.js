@@ -3,20 +3,40 @@ var nock = require('nock')
   , expect = require('chai').expect
   , Zencoder = require('../index');
 
+var apiKey = '1234567abcde';
+
 var scope = nock('https://app.zencoder.com')
-              .matchHeader('Zencoder-Api-Key', '1234567abcde')
+              .matchHeader('Zencoder-Api-Key', apiKey)
               .get('/api/v2/account')
               .reply(200, scopes.accounts.details);
 
 describe('The Zencoder REST Client setup', function () {
 
   it('should use an environment variable if API key is not included', function(done) {
-    process.env.ZENCODER_API_KEY = '1234567abcde';
+    process.env.ZENCODER_API_KEY = apiKey;
     var client = new Zencoder();
+    expect(client.apiKey).to.equal(apiKey);
     client.Account.details(function(err, data, response) {
       expect(response.statusCode).to.equal(200);
       done();
     });
+  });
+
+  it('should use default base url if not specified', function() {
+    var client = new Zencoder(apiKey);
+    expect(client.baseUrl).to.equal('https://app.zencoder.com/api/v2');
+  });
+
+  it('should use different base url if specified', function() {
+    var newBase = 'https://app.zencoder.com/api/v3';
+    var client = new Zencoder(apiKey, newBase);
+    expect(client.baseUrl).to.equal(newBase);
+  });
+
+  it('should adjust timeout if timeout specified in options', function() {
+    var options = {timeout: 5000};
+    var client = new Zencoder(apiKey, null, {timeout: 5000});
+    expect(client.options.timeout).to.equal(5000);
   });
 
 });
