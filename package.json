@@ -31,7 +31,7 @@
     "request": "2.x"
   },
   "devDependencies": {
-    "mocha": "1.11.x",
+    "mocha": "1.12.x",
     "colors": "*",
     "nock": "0.18.x",
     "chai": "1.7.x",
