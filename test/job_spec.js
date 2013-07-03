@@ -88,7 +88,7 @@ describe('The Zencoder REST Client Job resource', function () {
   it('should return progress of a job', function(done) {
     client.Job.progress(5432, function(err, data, response) {
       expect(response.statusCode).to.equal(200);
-      expect(data.state).to.equal('processing');
+      expect(data).to.have.property('state');
       expect(data.outputs.length).to.equal(1);
       done();
     })
