@@ -30,8 +30,9 @@ describe('The Zencoder REST Client Report resource', function () {
     it('should return usage when just a callback is specified', function(done) {
       client.Report.vod(function(err, data, response) {
         expect(response.statusCode).to.equal(200);
-        expect(data.total.encoded_minutes).to.equal(6);
-        expect(data.total.billable_minutes).to.equal(8);
+        expect(data).to.have.property('total');
+        expect(data).to.have.deep.property('total.encoded_minutes');
+        expect(data).to.have.deep.property('total.billable_minutes');
         done();
       });
     });
@@ -39,8 +40,8 @@ describe('The Zencoder REST Client Report resource', function () {
     it('should return usage when params and callback are specified', function(done) {
       client.Report.vod({}, function(err, data, response) {
         expect(response.statusCode).to.equal(200);
-        expect(data.total.encoded_minutes).to.equal(6);
-        expect(data.total.billable_minutes).to.equal(8);
+        expect(data).to.have.deep.property('total.encoded_minutes');
+        expect(data).to.have.deep.property('total.billable_minutes');
         done();
       });
     });
@@ -50,9 +51,9 @@ describe('The Zencoder REST Client Report resource', function () {
     it('should return usage when just a callback is specified', function(done) {
       client.Report.live(function(err, data, response) {
         expect(response.statusCode).to.equal(200);
-        expect(data.total.stream_hours).to.equal(5);
-        expect(data.total.encoded_hours).to.equal(5);
-        expect(data.statistics.length).to.equal(2);
+        expect(data).to.have.deep.property('total.stream_hours');
+        expect(data).to.have.deep.property('total.encoded_hours');
+        expect(data).to.have.property('statistics');
         done();
       });
     });
@@ -60,9 +61,9 @@ describe('The Zencoder REST Client Report resource', function () {
     it('should return usage when params and callback are specified', function(done) {
       client.Report.live({}, function(err, data, response) {
         expect(response.statusCode).to.equal(200);
-        expect(data.total.stream_hours).to.equal(5);
-        expect(data.total.encoded_hours).to.equal(5);
-        expect(data.statistics.length).to.equal(2);
+        expect(data).to.have.deep.property('total.stream_hours');
+        expect(data).to.have.deep.property('total.encoded_hours');
+        expect(data).to.have.property('statistics');
         done();
       });
     });
@@ -72,11 +73,11 @@ describe('The Zencoder REST Client Report resource', function () {
     it('should return usage when just a callback is specified', function(done) {
       client.Report.all(function(err, data, response) {
         expect(response.statusCode).to.equal(200);
-        expect(data.total.live.stream_hours).to.equal(5);
-        expect(data.total.live.encoded_hours).to.equal(5);
-        expect(data.total.vod.encoded_minutes).to.equal(6);
-        expect(data.total.vod.billable_minutes).to.equal(8);
-        expect(data.statistics.live.length).to.equal(2);
+        expect(data).to.have.deep.property('total.live.stream_hours');
+        expect(data).to.have.deep.property('total.live.encoded_hours');
+        expect(data).to.have.deep.property('total.vod.encoded_minutes');
+        expect(data).to.have.deep.property('total.vod.billable_minutes');
+        expect(data).to.have.property('statistics');
         done();
       });
     });
@@ -84,11 +85,11 @@ describe('The Zencoder REST Client Report resource', function () {
     it('should return usage when params and callback are specified', function(done) {
       client.Report.all({}, function(err, data, response) {
         expect(response.statusCode).to.equal(200);
-        expect(data.total.live.stream_hours).to.equal(5);
-        expect(data.total.live.encoded_hours).to.equal(5);
-        expect(data.total.vod.encoded_minutes).to.equal(6);
-        expect(data.total.vod.billable_minutes).to.equal(8);
-        expect(data.statistics.live.length).to.equal(2);
+        expect(data).to.have.deep.property('total.live.stream_hours');
+        expect(data).to.have.deep.property('total.live.encoded_hours');
+        expect(data).to.have.deep.property('total.vod.encoded_minutes');
+        expect(data).to.have.deep.property('total.vod.billable_minutes');
+        expect(data).to.have.property('statistics');
         done();
       });
     });
@@ -98,8 +99,9 @@ describe('The Zencoder REST Client Report resource', function () {
     it('should return usage', function(done) {
       client.Report.minutes(function(err, data, response) {
         expect(response.statusCode).to.equal(200);
-        expect(data.total.encoded_minutes).to.equal(6);
-        expect(data.total.billable_minutes).to.equal(8);
+        expect(data).to.have.property('total');
+        expect(data).to.have.deep.property('total.encoded_minutes');
+        expect(data).to.have.deep.property('total.billable_minutes');
         done();
       });
     });
