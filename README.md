@@ -1,8 +1,6 @@
 Zencoder
 ----
 
-[![Build Status](https://travis-ci.org/zencoder/zencoder-node.png?branch=master)](https://travis-ci.org/zencoder/zencoder-node) [![Dependency Status](https://david-dm.org/zencoder/zencoder-node.png)](https://david-dm.org/zencoder/zencoder-node) [![devDependency Status](https://david-dm.org/zencoder/zencoder-node/dev-status.png)](https://david-dm.org/zencoder/zencoder-node#info=devDependencies)
-
 NPM package for interacting with the [Zencoder](http://zencoder.com) API.
 
 Requires Node.js >= 0.8
@@ -167,9 +165,11 @@ To run the tests:
 	$ git clone git@github.com:zencoder/zencoder-node.git
 	$ cd zencoder-node
 	$ npm install
-	$ mocha
+	$ make test
 
-Instead of `$ mocha`, you can also just run `$ npm test`.
+## Badge Webring
+
+[![Build Status](https://travis-ci.org/zencoder/zencoder-node.png?branch=master)](https://travis-ci.org/zencoder/zencoder-node) [![Dependency Status](https://david-dm.org/zencoder/zencoder-node.png)](https://david-dm.org/zencoder/zencoder-node) [![devDependency Status](https://david-dm.org/zencoder/zencoder-node/dev-status.png)](https://david-dm.org/zencoder/zencoder-node#info=devDependencies) [![Coverage Status](https://coveralls.io/repos/zencoder/zencoder-node/badge.png?branch=master)](https://coveralls.io/r/zencoder/zencoder-node?branch=master)
 
 ----
 
