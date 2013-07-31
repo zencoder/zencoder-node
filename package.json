@@ -1,6 +1,6 @@
 {
   "name": "zencoder",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "Matthew McClure <mmcclure@brightcove.com>",
   "description": "Node integration library for Zencoder",
   "contributors": [
@@ -33,10 +33,10 @@
   "devDependencies": {
     "mocha": "1.12.x",
     "colors": "*",
-    "nock": "0.18.x",
+    "nock": "0.22.x",
     "chai": "1.7.x",
     "mocha-lcov-reporter": "0.0.1",
-    "coveralls": "2.0.x",
+    "coveralls": "2.1.x",
     "jscoverage": "0.3.x"
   },
   "license": "MIT",
