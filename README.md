@@ -22,10 +22,14 @@ Require the package in your application
 Instantiate a new client. This will accept an API Key and a Base URL. If no API key is set, it will look for a `ZENCODER_API_KEY` environment variable. Base URL defaults to `https://app.zencoder.com/api/v2`.
 
     // If you want to specify an API key when creating a client
-    var client = new Zencoder('API KEY');
+    var client = Zencoder('API KEY');
 
     // If you have the ZENCODER_API_KEY environment variable set
-    var client = new Zencoder();
+    var client = Zencoder();
+
+You can also do it all in one step if you'd prefer.
+
+    var client = require('zencoder')('API KEY');
 
 ### Usage
 
