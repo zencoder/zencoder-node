@@ -7,10 +7,20 @@ var apiKey = '1234567abcde';
 
 var scope = nock('https://app.zencoder.com')
               .matchHeader('Zencoder-Api-Key', apiKey)
-              .get('/api/v2/account')
+              .get('/api/v2/account').times(2)
               .reply(200, scopes.accounts.details);
 
 describe('The Zencoder REST Client setup', function () {
+
+  it('should not require new', function(done) {
+    process.env.ZENCODER_API_KEY = apiKey;
+    var client = Zencoder();
+    expect(client.apiKey).to.equal(apiKey);
+    client.Account.details(function(err, data, response) {
+      expect(response.statusCode).to.equal(200);
+      done();
+    });
+  });
 
   it('should use an environment variable if API key is not included', function(done) {
     process.env.ZENCODER_API_KEY = apiKey;
