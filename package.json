@@ -33,7 +33,7 @@
   "devDependencies": {
     "mocha": "1.15.x",
     "colors": "*",
-    "nock": "0.23.x",
+    "nock": "0.25.x",
     "chai": "1.8.x",
     "mocha-lcov-reporter": "0.0.1",
     "coveralls": "2.5.x",
