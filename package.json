@@ -1,6 +1,6 @@
 {
   "name": "zencoder",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "author": "Matthew McClure <mmcclure@brightcove.com>",
   "description": "Node integration library for Zencoder",
   "contributors": [
@@ -16,7 +16,7 @@
   "scripts": {
     "test": "make test-coveralls"
   },
-  "main": "./lib/http-server",
+  "main": "./lib/index",
   "repository": {
     "type": "git",
     "url": "https://github.com/zencoder/zencoder-node"
