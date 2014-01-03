@@ -31,12 +31,12 @@
     "request": "2.x"
   },
   "devDependencies": {
-    "mocha": "1.15.x",
+    "mocha": "1.16.x",
     "colors": "*",
-    "nock": "0.25.x",
+    "nock": "0.27.x",
     "chai": "1.8.x",
     "mocha-lcov-reporter": "0.0.1",
-    "coveralls": "2.5.x",
+    "coveralls": "2.6.x",
     "jscoverage": "0.3.x"
   },
   "license": "MIT",
