@@ -1,6 +1,6 @@
 {
   "name": "zencoder",
-  "version": "0.4.6",
+  "version": "0.5.0",
   "author": "Matthew McClure <mmcclure@brightcove.com>",
   "description": "Node integration library for Zencoder",
   "contributors": [

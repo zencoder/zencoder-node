@@ -43,6 +43,7 @@ The library follows the API's REST conventions as closely as possible. Each meth
       console.log(data);
     }
 
+If an error occurs, the error param in the callback will be an `Error` object. In the above example, `err.code` would include the HTTP status code returned by the API, and `err.message` would include the response body.
 
 ## [Jobs](https://app.zencoder.com/docs/api/jobs)
 
