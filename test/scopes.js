@@ -1,4 +1,5 @@
 module.exports = {
+  moved_permanently: "<html><head><title>301 Moved Permanently</title></head><body bgcolor=\"white\"><center><h1>301 Moved Permanently</h1></center><hr><center>ZenServer 0.1.9</center></body></html>",
   job: {
     create: {
       "outputs": [

@@ -8,7 +8,9 @@ var apiKey = '1234567abcde';
 var scope = nock('https://app.zencoder.com')
               .matchHeader('Zencoder-Api-Key', apiKey)
               .get('/api/v2/account').times(2)
-              .reply(200, scopes.accounts.details);
+              .reply(200, scopes.accounts.details)
+              .post('/api/v90/jobs')
+              .reply(301, scopes.moved_permanently);
 
 describe('The Zencoder REST Client setup', function () {
 
@@ -47,6 +49,13 @@ describe('The Zencoder REST Client setup', function () {
     var options = {timeout: 5000};
     var client = new Zencoder(apiKey, null, {timeout: 5000});
     expect(client.options.timeout).to.equal(5000);
+  });
+
+  it('should return an error object as error param', function() {
+    var client = new Zencoder(apiKey, 'https://app.zencoder.com/api/v90');
+    client.Job.create({}, function(err) {
+      expect(err.name).to.equal('Error')
+    });
   });
 
 });
