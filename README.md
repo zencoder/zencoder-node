@@ -57,46 +57,46 @@ Create a [new job](https://app.zencoder.com/docs/api/jobs/create). We'll include
 
 Get [details](https://app.zencoder.com/docs/api/jobs/show) about a job.
 
-    client.Job.details(12345, callback(err, data));
+    client.Job.details(12345, callback);
 
 Get [progress](https://app.zencoder.com/docs/api/jobs/progress) on a job.
 
-    client.Job.progress(12345, callback(err, data));
+    client.Job.progress(12345, callback);
 
 [List jobs](https://app.zencoder.com/docs/api/jobs/list). By default this returns the last 50 jobs, but this can be altered in an optional params hash.
 
-    client.Job.list(callback(err, data));
+    client.Job.list(callback);
 
     // With optional params hash
-    client.Job.list({per_page: 5, page: 3}, callback(err, data));
+    client.Job.list({per_page: 5, page: 3}, callback);
 
 [Cancel](https://app.zencoder.com/docs/api/jobs/cancel) a job
 
-    client.Job.cancel(12345, callback(err, data));
+    client.Job.cancel(12345, callback);
 
 [Resubmit](https://app.zencoder.com/docs/api/jobs/resubmit) a job
 
-    client.Job.resubmit(12345, callback(err, data));
+    client.Job.resubmit(12345, callback);
 
 ## [Inputs](https://app.zencoder.com/docs/api/inputs)
 
 Get [details](https://app.zencoder.com/docs/api/inputs/show) about an input.
 
-    client.Input.details(12345, callback(err, data));
+    client.Input.details(12345, callback);
 
 Get [progress](https://app.zencoder.com/docs/api/inputs/progress) for an input.
 
-    client.Input.progress(12345, callback(err, data));
+    client.Input.progress(12345, callback);
 
 ## [Outputs](https://app.zencoder.com/docs/api/outputs)
 
 Get [details](https://app.zencoder.com/docs/api/outputs/show) about an output.
 
-    client.Output.details(12345, callback(err, data));
+    client.Output.details(12345, callback);
 
 Get [progress](https://app.zencoder.com/docs/api/outputs/progress) for an output.
 
-    client.Output.progress(12345, callback(err, data));
+    client.Output.progress(12345, callback);
 
 ## [Reports](https://app.zencoder.com/docs/api/reports)
 
@@ -104,39 +104,39 @@ Reports are great for getting usage data for your account. All default to 30 day
 
 Get [all usage](https://app.zencoder.com/docs/api/reports/all) (Live + VOD).
 
-    client.Report.all(callback(err, data));
+    client.Report.all(callback);
 
     // For a specific date range
-    client.Report.all({from: '2013-05-01', to: '2013-06-01'}, callback(err, data));
+    client.Report.all({from: '2013-05-01', to: '2013-06-01'}, callback);
 
     // For a specific grouping
-    client.Report.all({grouping: 'aperture-testing'}, callback(err, data));
+    client.Report.all({grouping: 'aperture-testing'}, callback);
 
 Get [VOD usage](https://app.zencoder.com/docs/api/reports/vod).
 
-    client.Report.vod(callback(err, data));
+    client.Report.vod(callback);
 
     // For a specific date range
-    client.Report.vod({from: '2013-05-01', to: '2013-06-01'}, callback(err, data));
+    client.Report.vod({from: '2013-05-01', to: '2013-06-01'}, callback);
 
     // For a specific grouping
-    client.Report.vod({grouping: 'aperture-testing'}, callback(err, data));
+    client.Report.vod({grouping: 'aperture-testing'}, callback);
 
 Get [Live usage](https://app.zencoder.com/docs/api/reports/live).
 
-    client.Report.live(callback(err, data));
+    client.Report.live(callback);
 
     // For a specific date range
-    client.Report.live({from: '2013-05-01', to: '2013-06-01'}, callback(err, data));
+    client.Report.live({from: '2013-05-01', to: '2013-06-01'}, callback);
 
     // For a specific grouping
-    client.Report.live({grouping: 'aperture-testing'}, callback(err, data));
+    client.Report.live({grouping: 'aperture-testing'}, callback);
 
 ## [Accounts](https://app.zencoder.com/docs/api/accounts)
 
 Create a [new account](https://app.zencoder.com/docs/api/accounts/create). A unique email address and terms of service are required, but you can also specify a password (and confirmation) along with whether or not you want to subscribe to the Zencoder newsletter. New accounts will be created under the Test (Free) plan.
 
-	client.Account.create({email: 'tedjones@example.com', terms_of_service: 1}, callback(err, data));
+	client.Account.create({email: 'tedjones@example.com', terms_of_service: 1}, callback);
 
 	// Create an account with all possible options
 	client.Account.create({
@@ -145,19 +145,19 @@ Create a [new account](https://app.zencoder.com/docs/api/accounts/create). A uni
 		password: 'sureamgladforssl',
 		password_confirmation: 'sureamgladforssl',
 		newsletter: 0
-	}, callback(err, data));
+	}, callback);
 
 Get [details](https://app.zencoder.com/docs/api/accounts/show) about the current account.
 
-	client.Account.details(callback(err, data));
+	client.Account.details(callback);
 
 Turn [integration mode](https://app.zencoder.com/docs/api/accounts/integration) on (all jobs are test jobs).
 
-    client.Account.integration(callback(err, data));
+    client.Account.integration(callback);
 
 Turn off integration mode, which means your account is live (and you'll be billed for jobs).
 
-	client.Account.live(callback(err, data));
+	client.Account.live(callback);
 
 ## Advanced Options
 
