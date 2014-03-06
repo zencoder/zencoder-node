@@ -24,7 +24,11 @@ var scope = nock('https://app.zencoder.com')
 
 describe('The Zencoder REST Client Report resource', function () {
 
-  var client = new Zencoder('1234567abcde');
+  var client;
+
+  beforeEach(function() {
+    client = new Zencoder('1234567abcde');
+  });
 
   describe('vod', function() {
     it('should return usage when just a callback is specified', function(done) {

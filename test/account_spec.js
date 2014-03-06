@@ -15,8 +15,11 @@ var scope = nock('https://app.zencoder.com')
               .reply(204);
 
 describe('The Zencoder REST Client account resource', function () {
+  var client;
 
-  var client = new Zencoder('1234567abcde');
+  beforeEach(function() {
+    client = new Zencoder('1234567abcde');
+  });
 
   it('should create a new account', function(done) {
     client.Account.create({email: 'herpderp@example.com', terms_of_service: 1}, function(err, data, response) {

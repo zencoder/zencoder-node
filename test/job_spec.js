@@ -24,7 +24,11 @@ var scope = nock('https://app.zencoder.com')
 
 describe('The Zencoder REST Client Job resource', function () {
 
-  var client = new Zencoder('1234567abcde');
+  var client;
+
+  beforeEach(function() {
+    client = new Zencoder('1234567abcde');
+  });
 
   it('should create a new job', function(done) {
     client.Job.create({

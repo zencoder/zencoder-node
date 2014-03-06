@@ -12,7 +12,11 @@ var scope = nock('https://app.zencoder.com')
 
 describe('The Zencoder REST Client Input resource', function () {
 
-  var client = new Zencoder('1234567abcde');
+  var client;
+
+  beforeEach(function() {
+    client = new Zencoder('1234567abcde');
+  });
 
   it('should return details about an output', function(done) {
     client.Output.details(15432, function(err, data, response) {
