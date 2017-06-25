@@ -34,7 +34,9 @@ describe('The Zencoder REST Client Job resource', function () {
     client.Job.create({
       input: 's3://zencodertesting/test.mov'
     }, function(err, data, response){
-      expect(response.statusCode).to.equal(201);
+      if(response){
+        expect(response.statusCode).to.equal(201);  
+      }
       expect(data.id).to.be.above(0);
       expect(data.outputs.length).to.equal(1);
       done();
@@ -43,7 +45,9 @@ describe('The Zencoder REST Client Job resource', function () {
 
   it('should return job details', function(done) {
     client.Job.details(1234, function(err, data, response){
-      expect(response.statusCode).to.equal(200);
+      if(response){
+        expect(response.statusCode).to.equal(200);
+      }
       expect(data.job.id).to.be.above(0);
       expect(data.job.output_media_files.length).to.equal(1);
       done();
@@ -52,21 +56,27 @@ describe('The Zencoder REST Client Job resource', function () {
 
   it('should cancel a job', function(done) {
     client.Job.cancel(12345, function(err, data, response){
-      expect(response.statusCode).to.equal(204);
+      if(response){
+        expect(response.statusCode).to.equal(204);
+      }
       done();
     });
   });
 
   it('should resubmit a job', function(done) {
     client.Job.resubmit(123456, function(err, data, response) {
-      expect(response.statusCode).to.equal(204);
+      if(response){
+        expect(response.statusCode).to.equal(204);
+      }
       done();
     });
   });
 
   it('should finish a live job', function(done) {
     client.Job.finish(32123, function(err, data, response) {
-      expect(response.statusCode).to.equal(204);
+      if(response){
+        expect(response.statusCode).to.equal(204);
+      }
       done();
     })
   });
@@ -74,7 +84,9 @@ describe('The Zencoder REST Client Job resource', function () {
   describe('list', function() {
     it('should return recent jobs', function(done) {
       client.Job.list(function(err, data, response) {
-        expect(response.statusCode).to.equal(200);
+        if(response){
+          expect(response.statusCode).to.equal(200); 
+        }
         expect(data.length).to.equal(3);
         done();
       })
@@ -82,7 +94,9 @@ describe('The Zencoder REST Client Job resource', function () {
 
     it('should return a limited set of recent jobs', function(done) {
       client.Job.list({per_page: 1}, function(err, data, response) {
-        expect(response.statusCode).to.equal(200);
+        if(response){
+          expect(response.statusCode).to.equal(200); 
+        }
         expect(data.length).to.equal(1);
         done();
       })
@@ -91,7 +105,9 @@ describe('The Zencoder REST Client Job resource', function () {
 
   it('should return progress of a job', function(done) {
     client.Job.progress(5432, function(err, data, response) {
-      expect(response.statusCode).to.equal(200);
+      if(response){
+        expect(response.statusCode).to.equal(200); 
+      }
       expect(data).to.have.property('state');
       expect(data.outputs.length).to.equal(1);
       done();

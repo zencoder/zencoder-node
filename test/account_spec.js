@@ -23,7 +23,9 @@ describe('The Zencoder REST Client account resource', function () {
 
   it('should create a new account', function(done) {
     client.Account.create({email: 'herpderp@example.com', terms_of_service: 1}, function(err, data, response) {
-      expect(response.statusCode).to.equal(201);
+      if(response){
+        expect(response.statusCode).to.equal(201);
+      }
       expect(data).to.have.property('api_key');
       expect(data).to.have.property('password');
       done();
@@ -32,7 +34,9 @@ describe('The Zencoder REST Client account resource', function () {
 
   it('should return details about an account', function(done) {
     client.Account.details(function(err, data, response) {
-      expect(response.statusCode).to.equal(200);
+      if(response){
+        expect(response.statusCode).to.equal(200);
+      }
       expect(data).to.have.property('account_state');
       expect(data).to.have.property('minutes_included');
       done();
@@ -41,14 +45,18 @@ describe('The Zencoder REST Client account resource', function () {
 
   it('should turn on integration mode', function(done) {
     client.Account.integration(function(err, data, response) {
-      expect(response.statusCode).to.equal(204);
+      if(response){
+        expect(response.statusCode).to.equal(204);
+      }
       done();
     })
   });
 
   it('should turn off integration mode', function(done) {
     client.Account.live(function(err, data, response) {
-      expect(response.statusCode).to.equal(204);
+      if(response){
+        expect(response.statusCode).to.equal(204);
+      }
       done();
     })
   });
