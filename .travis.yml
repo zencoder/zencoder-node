@@ -1,5 +1,5 @@
 before_install:
-  - npm update -g npm
+  - npm install -g mocha
 language: node_js
 node_js:
   - 'node'
