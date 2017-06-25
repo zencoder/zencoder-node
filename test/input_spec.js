@@ -20,7 +20,9 @@ describe('The Zencoder REST Client Input resource', function () {
 
   it('should return details about an input', function(done) {
     client.Input.details(15432, function(err, data, response) {
-      expect(response.statusCode).to.equal(200);
+      if(response){
+        expect(response.statusCode).to.equal(200);  
+      }
       expect(data.id).to.be.above(0);
       done();
     });
@@ -28,7 +30,9 @@ describe('The Zencoder REST Client Input resource', function () {
 
   it('should return progress about an input', function(done) {
     client.Input.progress(14325, function(err, data, response) {
-      expect(response.statusCode).to.equal(200);
+      if(response){
+        expect(response.statusCode).to.equal(200); 
+      }
       expect(data).to.have.property('state');
       done();
     })

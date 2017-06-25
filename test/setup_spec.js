@@ -19,7 +19,9 @@ describe('The Zencoder REST Client setup', function () {
     var client = Zencoder();
     expect(client.apiKey).to.equal(apiKey);
     client.Account.details(function(err, data, response) {
-      expect(response.statusCode).to.equal(200);
+      if(response){
+        expect(response.statusCode).to.equal(200); 
+      }
       done();
     });
   });
@@ -29,7 +31,9 @@ describe('The Zencoder REST Client setup', function () {
     var client = new Zencoder();
     expect(client.apiKey).to.equal(apiKey);
     client.Account.details(function(err, data, response) {
-      expect(response.statusCode).to.equal(200);
+      if(response){
+        expect(response.statusCode).to.equal(200); 
+      }
       done();
     });
   });
