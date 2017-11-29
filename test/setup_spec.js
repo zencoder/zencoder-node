@@ -58,4 +58,10 @@ describe('The Zencoder REST Client setup', function () {
     });
   });
 
+  it('should return a promise if no callback is supplied', function() {
+    process.env.ZENCODER_API_KEY = apiKey;
+    var client = new Zencoder();
+    expect(client.Account.details().constructor).to.equal(Promise)
+  })
+
 });
