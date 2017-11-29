@@ -42,7 +42,7 @@ describe('The Zencoder REST Client Job resource', function () {
   });
 
   it('should return job details', function(done) {
-    client.Job.details(1234, function(err, data, response){
+    client.Job.details(1234).then(function({data, response}){
       expect(response.statusCode).to.equal(200);
       expect(data.job.id).to.be.above(0);
       expect(data.job.output_media_files.length).to.equal(1);
@@ -58,7 +58,7 @@ describe('The Zencoder REST Client Job resource', function () {
   });
 
   it('should resubmit a job', function(done) {
-    client.Job.resubmit(123456, function(err, data, response) {
+    client.Job.resubmit(123456).then(function({data, response}) {
       expect(response.statusCode).to.equal(204);
       done();
     });
@@ -73,7 +73,7 @@ describe('The Zencoder REST Client Job resource', function () {
 
   describe('list', function() {
     it('should return recent jobs', function(done) {
-      client.Job.list(function(err, data, response) {
+      client.Job.list().then(function({data, response}) {
         expect(response.statusCode).to.equal(200);
         expect(data.length).to.equal(3);
         done();
