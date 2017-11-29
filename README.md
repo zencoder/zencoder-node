@@ -3,7 +3,7 @@ Zencoder
 
 NPM package for interacting with the [Zencoder](http://zencoder.com) API.
 
-Requires Node.js >= 0.8
+Requires Node.js >= 6.4
 
 ### Badge Webring
 
