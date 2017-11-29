@@ -33,7 +33,9 @@ You can also do it all in one step if you'd prefer.
 
 ### Usage
 
-The library follows the API's REST conventions as closely as possible. Each method accepts a callback as the last parameter, and passes 3 objects to that callback: error, data, and response (in that order). Error will be null unless there's a problem with the request, data contains the body of the response from Zencoder, and response contains the raw response body, which includes HTTP codes, etc. In most cases you'll only need to check for error and then do something with the data. Below is a basic callback that we'll be using for reference in the rest of our requests.
+The library follows the API's REST conventions as closely as possible. 
+
+Each method accepts a callback as the last parameter, and passes 3 objects to that callback: error, data, and response (in that order). Error will be null unless there's a problem with the request, data contains the body of the response from Zencoder, and response contains the raw response body, which includes HTTP codes, etc. In most cases you'll only need to check for error and then do something with the data. Below is a basic callback that we'll be using for reference in the rest of our requests.
 
     function callback(err, data) {
       // if err is not null, something went wrong. Print it out and return.
@@ -44,6 +46,15 @@ The library follows the API's REST conventions as closely as possible. Each meth
     }
 
 If an error occurs, the error param in the callback will be an `Error` object. In the above example, `err.code` would include the HTTP status code returned by the API, and `err.message` would include the response body.
+
+#### Promises
+If no callback is supplied, the library will return a promise. The promise will be resolved with an object containing the properties `data` and `response`. All errors will be thrown, and should be handled with `.catch`.
+
+    client.Job.details(12345)
+      .then(function ({data}) {
+        console.log(data);
+      })
+      .catch(console.log)
 
 ## [Jobs](https://app.zencoder.com/docs/api/jobs)
 
