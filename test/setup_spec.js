@@ -7,9 +7,9 @@ var apiKey = '1234567abcde';
 
 var scope = nock('https://app.zencoder.com')
               .matchHeader('Zencoder-Api-Key', apiKey)
-              .get('/api/v2/account').times(2)
+              .get('/api/v2/account').times(3)
               .reply(200, scopes.accounts.details)
-              .post('/api/v90/jobs')
+              .post('/api/v90/jobs').times(2)
               .reply(301, scopes.moved_permanently);
 
 describe('The Zencoder REST Client setup', function () {
@@ -58,10 +58,16 @@ describe('The Zencoder REST Client setup', function () {
     });
   });
 
-  it('should return a promise if no callback is supplied', function() {
+  it('should return a promise if no callback is supplied', function(done) {
     process.env.ZENCODER_API_KEY = apiKey;
     var client = new Zencoder();
-    expect(client.Account.details().constructor).to.equal(Promise)
+    var resPromise = client.Account.details();
+    expect(resPromise.constructor).to.equal(Promise);
+    resPromise.then(function({data, body}) {
+      expect(data).to.be.defined;
+      expect(body).to.be.defined;
+      return done();
+    })
   })
 
 });
