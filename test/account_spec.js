@@ -47,7 +47,7 @@ describe('The Zencoder REST Client account resource', function () {
   });
 
   it('should turn off integration mode', function(done) {
-    client.Account.live(function(err, data, response) {
+    client.Account.live().then(function({data, response}) {
       expect(response.statusCode).to.equal(204);
       done();
     })

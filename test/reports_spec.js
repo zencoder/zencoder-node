@@ -53,7 +53,7 @@ describe('The Zencoder REST Client Report resource', function () {
 
   describe('live', function() {
     it('should return usage when just a callback is specified', function(done) {
-      client.Report.live(function(err, data, response) {
+      client.Report.live().then(function({data, response}) {
         expect(response.statusCode).to.equal(200);
         expect(data).to.have.deep.property('total.stream_hours');
         expect(data).to.have.deep.property('total.encoded_hours');

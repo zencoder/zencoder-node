@@ -27,7 +27,7 @@ describe('The Zencoder REST Client Input resource', function () {
   });
 
   it('should return progress about an input', function(done) {
-    client.Input.progress(14325, function(err, data, response) {
+    client.Input.progress(14325).then(function({data, response}) {
       expect(response.statusCode).to.equal(200);
       expect(data).to.have.property('state');
       done();
